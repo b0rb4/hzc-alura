@@ -1,0 +1,397 @@
+@font-face {
+    font-family: 'icones';
+    src: url(../font/icones.ttf);
+}
+
+body {
+    background-color: #1D232A;
+    font-family: 'Open Sans', 'icones', sans-serif;
+    color: #FFFFFF;
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #15191C;
+    padding: 8px 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+}
+
+.cabecalhoMenu i::before {
+    content: "\e904";
+    font-size: 24px;
+}
+
+.cabecalhoNotificacao i::before {
+    content: "\e906";
+    font-size: 24px;
+}
+
+.cabecalhoLogo {
+    width: 40px;
+}
+
+.cabecalhoPerfil {
+    display: none;
+}
+
+@media screen and (min-width: 1440px) {
+    .cabecalho {
+        background-color: #1D232A;
+        display: grid;
+        column-gap: 32px;
+        grid-template-columns: 1fr auto;
+        padding: 16px 60px;
+        height: 80px;
+        box-sizing: border-box;
+        grid-column: 2;
+    }
+
+    .cabecalhoMenu {
+        display: none;
+    }
+
+    .cabecalhoLogo {
+        display: none;
+    }
+
+    .cabecalhoPerfil {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        column-gap: 8px;
+        align-items: center;
+        justify-self: flex-end;
+        color: #95999C;
+        padding: 8px 32px;
+        border-right: 1px solid #95999C;
+    }
+
+    .cabecalhoPerfil::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-image: url(../img/profile_1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .cabecalhoPerfil::after {
+        content: "\e90d";
+        color: #FFFFFF;
+        font-size: 1.5rem;
+    }
+}
+
+.menuLateral {
+    display: flex;
+    flex-direction: column;
+    background-color: #15191C;
+    width: 75vw;
+    height: 100vh;
+
+    position: absolute;
+    left: -100vw;
+    transition: .25s;
+}
+
+.menuLateralAtivo {
+    left: 0;
+    transition: .25s;
+}
+
+.menuLateralLogo {
+    width: 118px;
+    align-self: center;
+    padding: 16px;
+}
+
+.menuLateralLink {
+    height: 64px;
+    color: #95999C;
+    padding-left: 64px;
+    display: flex;
+    align-items: center;
+}
+
+.menuLateralLinkAtivo {
+    color: #FFFFFF;
+    padding-left: 56px;
+    border-left: 8px solid #FFFFFF;
+}
+
+.menuLateralLink::before {
+    content: "\e900";
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    position: absolute;
+    left: 24px;
+}
+
+.menuLateralLinkInicio::before {
+    content: "\e902";
+}
+
+.menuLateralLinkVideos::before {
+    content: "\e90e";
+}
+
+.menuLateralLinkPicos::before {
+    content: "\e909";
+}
+
+.menuLateralLinkIntegrantes::before {
+    content: "\e903";
+}
+
+.menuLateralLinkCamisas::before {
+    content: "\e900";
+}
+
+.menuLateralLinkPinturas::before {
+    content: "\e90a";
+}
+
+@media screen and (min-width: 1440px) {
+    .menuLateral {
+        position: static;
+        width: 200px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+}
+
+.principal {
+    padding: 24px 16px;
+    display: grid;
+    gap: 16px;
+}
+
+.tituloPagina {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tituloSecao {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+@media screen and (min-width: 1440px) {
+    .principal {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "tituloPagina tituloPagina tituloPagina"
+            "destaqueVideo destaqueVideo videosRecentes"
+            "secaoVideos secaoVideos secaoVideos"
+            "produtosRecentes destaqueProdutos destaqueProdutos"
+            "secaoProdutos secaoProdutos secaoProdutos"       
+        ;
+        column-gap: 32px;
+        padding: 16px 60px;
+        grid-column: 2;
+    }
+
+    .tituloSecao {
+        grid-column: span 4;
+    }
+}
+
+.cartao {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #2C343A;
+}
+
+.cartaoImagenDesktop {
+    display: none;
+}
+
+.cartaoDestaque {
+    margin-bottom: 16px;
+}
+
+.cartaoConteudo {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+}
+
+.cartaoDestaque {
+    grid-column: span 2;
+}
+
+.cartaoTitulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    grid-column: span 2;
+}
+
+.cartaoPerfil {
+    color: #95999C;
+    font-size: 0.9rem;
+    grid-column: span 2;
+}
+
+.cartaoInfo {
+    display: flex;
+    align-items: center;
+    color: #95999C;
+}
+
+.cartaoInfoTempo::before {
+    content: "\e90c";
+    margin-right: 8px;    
+}
+
+.cartaoInfoVisualizacao::before {
+    content: "\e90f";
+    margin-right: 8px;    
+}
+
+.cartaoBotao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0480DC;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    justify-self: flex-end;
+}
+
+.cartaoBotaoPlay::before {
+    content: "\e90b";
+    font-size: 24px;
+}
+
+.cartaoBotaoDestaque {
+    width: 100%;
+    grid-column: span 2;
+}
+
+.cartaoBotaoDestaque::before {
+    margin-right: 8px;
+}
+
+.cartaoRecentes {
+    display: none;
+}
+
+@media screen and (min-width: 1440px) {
+    .cartaoDestaque {
+        margin-bottom: 0;
+    }
+
+    .cartaoImagenMobile {
+        display: none;
+    }
+
+    .cartaoImagenDesktop {
+        display: block;
+    }
+
+    .cartaoBotaoDestaque {
+        grid-column: auto;
+        padding: 16px 8px;
+    }
+
+    .cartaoRecentes {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        row-gap: 24px;
+        width: 256px;
+        padding: 16px;
+        box-sizing: border-box;
+        align-self: flex-start;
+    }
+
+    .cartaoRecentes .cartaoTitulo {
+        grid-column: auto;
+    }
+
+    .cartaoLink {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #0480DC;
+        justify-self: flex-end;
+    }
+    
+    .cartaoLista {
+        display: grid;
+        row-gap: 16px;
+        grid-column: span 2;
+    }
+
+    .cartaoItem {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 8px;
+    }
+
+    .cartaoItemThumbnail {
+        width: 32px;
+        grid-row: span 2;
+    }
+
+    .cartaoItemTitulo {
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+        font-weight: 700;
+    }
+
+    .cartaoItemPerfil {
+        font-size: 0.8rem;
+        color: #95999C;
+    }
+}
+
+.secao {
+    display: grid;
+    gap: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+    .secao {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .destaqueVideo {
+        grid-area: destaqueVideo;
+    }
+    
+    .videosRecentes {
+        grid-area: videosRecentes;
+    }
+    
+    .secaoVideos {
+        grid-area: secaoVideos;
+    }
+    
+    .destaqueProdutos {
+        grid-area: destaqueProdutos;
+    }
+    
+    .produtosRecentes {
+        grid-area: produtosRecentes;
+    }
+    
+    .secaoProdutos {
+        grid-area: secaoProdutos;
+    }
+}
